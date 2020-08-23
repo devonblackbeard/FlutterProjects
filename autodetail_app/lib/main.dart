@@ -68,7 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
   {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title)
+          title: Text(widget.title)
       ),
       body: buildListView(),
     );
@@ -77,12 +77,12 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget buildListView()
   {
     return ListView.builder(
-      padding: const EdgeInsets.all(0),
-      itemCount: imageData == null ? 0 : imageData.length,
-      itemBuilder: (context,index)
-      {
-        return buildImageColumn(imageData[index]);
-      });
+        padding: const EdgeInsets.all(0),
+        itemCount: imageData == null ? 0 : imageData.length,
+        itemBuilder: (context,index)
+        {
+          return buildImageColumn(imageData[index]);
+        });
   }
 
   Widget buildImageColumn(dynamic item) => Container(
@@ -103,32 +103,32 @@ class _MyHomePageState extends State<MyHomePage> {
     ),
   );
 
-Widget buildRow(dynamic item) {
-  return ListTile(
-      title: Align(
-        child: new Text(
-            item['localized_name'] == null ? '' : item['localized_name']),
-        alignment: Alignment(0, 0),
-      ),
-      onTap: () {
-        showDialog(
-            context: context,
-            child: new AlertDialog(
-              titlePadding: new EdgeInsets.symmetric(vertical: 2.0, horizontal: 2),
-              // contentPadding: EdgeInsets.fromLTRB(12,0,32,0),
-              elevation: 50.0,
-              shape: RoundedRectangleBorder(
-                  borderRadius: new BorderRadius.circular(18)
-              ),
-              backgroundColor: Colors.lightGreen,
-              title: new Column(
-                children: <Widget>[
-                  new Text("You clicked:", ),
-                ],
-              ),
-              content: new Text(item['localized_name']),
-              actions: <Widget>[
-                new FlatButton(
+  Widget buildRow(dynamic item) {
+    return ListTile(
+        title: Align(
+          child: new Text(
+              item['localized_name'] == null ? '' : item['localized_name']),
+          alignment: Alignment(0, 0),
+        ),
+        onTap: () {
+          showDialog(
+              context: context,
+              child: new AlertDialog(
+                titlePadding: new EdgeInsets.symmetric(vertical: 2.0, horizontal: 2),
+                // contentPadding: EdgeInsets.fromLTRB(12,0,32,0),
+                elevation: 50.0,
+                shape: RoundedRectangleBorder(
+                    borderRadius: new BorderRadius.circular(18)
+                ),
+                backgroundColor: Colors.lightGreen,
+                title: new Column(
+                  children: <Widget>[
+                    new Text("You clicked:", ),
+                  ],
+                ),
+                content: new Text(item['localized_name']),
+                actions: <Widget>[
+                  new FlatButton(
 //                  onPressed: () {
 //                    Navigator.push(
 //                      context,
@@ -140,17 +140,17 @@ Widget buildRow(dynamic item) {
 //                    );
 //                  },
 //                  child: new Text('OK'),
-                ),
-              ],
-            ));
-      });
-}
+                  ),
+                ],
+              ));
+        });
+  }
 
 
-@override
-void initState() {
-  super.initState();
-  // Call the getData() method when the app initializes
-  this.getData();
-}
+  @override
+  void initState() {
+    super.initState();
+    // Call the getData() method when the app initializes
+    this.getData();
+  }
 }
